@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>保存結果</title>
+</head>
+<body>
+    <h2>保存が完了しました</h2>
+    <p th:text="${message}">ここにメッセージが入ります</p>
+
+    <a th:href="@{/diary/form}">戻る</a>
+	
+	<a th:href="@{/diary/top}">確認</a>
+</body>
+</html>

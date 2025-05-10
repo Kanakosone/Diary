@@ -1,0 +1,51 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.4'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // ←★これが必要！
+
+	runtimeOnly 'org.postgresql:postgresql:42.7.3'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // Google Calendar API
+    implementation 'com.google.apis:google-api-services-calendar:v3-rev305-1.25.0'
+
+    // OAuth 認証用
+    implementation 'com.google.oauth-client:google-oauth-client:1.35.0'
+
+    // HTTPクライアント
+    implementation 'com.google.http-client:google-http-client:1.40.1'
+
+    // ★ JacksonFactory を使うために必要 ★
+    implementation 'com.google.http-client:google-http-client-jackson2:1.40.1'
+
+    // JSON 処理ライブラリ（Jackson本体）
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.3'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
