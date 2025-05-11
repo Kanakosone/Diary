@@ -6,7 +6,7 @@ services:
     dockerContext: .
     dockerfilePath: Dockerfile
     branch: develop
-    helthCheckPath: /
+    healthCheckPath: /
     envVars:
       - key: PORT
         value: 8080
