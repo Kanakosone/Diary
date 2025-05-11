@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: diary-app
+    env: docker
+    plan: free
+    dockerContext: .
+    dockerfilePath: Dockerfile
+    branch: develop
+    helthCheckPath: /
+    envVars:
+      - key: PORT
+        value: 8080
