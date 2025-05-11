@@ -4,7 +4,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # ビルドされたjarファイルをアプリにコピー（名前は後で確認）
-COPY build/libs/Diary-0.0.1-SNAPSHOT.jar app.jar
+COPY build/libs/*.jar app.jar
 
 # ポート開放
 EXPOSE 8080
