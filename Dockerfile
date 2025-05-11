@@ -3,6 +3,9 @@ FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
+# Gradleでビルドを実行
+RUN gradle clean build
+
 # ビルドされたjarファイルをアプリにコピー（名前は後で確認）
 COPY build/libs/Diary1-0.0.1-SNAPSHOT.jar app.jar
 
